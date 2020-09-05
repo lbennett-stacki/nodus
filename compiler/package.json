@@ -1,0 +1,14 @@
+{
+  "name": "@nodus/compiler",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  },
+  "scripts": {
+    "clean": "rm -rf dist/*",
+    "build": "yarn clean && tsc"
+  }
+}

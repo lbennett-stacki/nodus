@@ -1,0 +1,61 @@
+name: Inkage
+description: Uber for skin-based ink application
+- services:
+  auth:
+    description: auth the users and robots
+    name: AuthService
+      - source:
+        - guards:
+          - JWT # implementation
+        - services:
+          - JWT # implementation
+  users:
+    name: UsersService
+    description: do stuff to the users
+    - entities:
+      User:
+        ...UserSchema
+    - controllers:
+      UsersController:
+        - actions:  # AKA endpoint
+          user:
+            inputs:
+              id: number
+            output:
+              type: @users.entities.User # is a reference
+    - services:
+      Find: # implementation
+      constructor:
+        inputs:
+          UserRepo: @... # is a reference
+        - methods:
+          findOne:
+            inputs:
+              id: number
+            # - assignments: # example of an implementation
+            #   user:
+            #     call: UserRepo.findOne
+            #     inputs:
+            #       id: this.inputs.id
+            output:
+              type: @users.entities.User # is a reference
+
+
+
+
+
+
+
+
+
+
+
+# app.module
+# services/
+#   auth/
+#     src/
+#       guards/
+#         JWT.ts
+#       services/
+#         JWT.ts
+#   users/
