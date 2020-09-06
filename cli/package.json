@@ -5,12 +5,14 @@
     "nodus-cli": "./bin/run"
   },
   "dependencies": {
+    "@nodus/compiler": "file:../compiler",
+    "@nodus/parser": "file:../parser",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
-    "tslib": "^1",
-    "@nodus/parser": "file:../parser",
-    "@nodus/compiler": "file:../compiler"
+    "listr": "^0.14.3",
+    "rxjs": "^6.6.2",
+    "tslib": "^1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
