@@ -8,7 +8,9 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
-    "tslib": "^1"
+    "tslib": "^1",
+    "@nodus/parser": "file:../parser",
+    "@nodus/compiler": "file:../compiler"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
