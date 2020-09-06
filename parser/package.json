@@ -1,17 +1,20 @@
 {
   "name": "@nodus/parser",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "js-yaml": "^3.14.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^3.12.5",
+    "@types/node": "^14.6.4",
     "typescript": "^4.0.2"
   },
   "scripts": {
     "clean": "rm -rf dist/*",
-    "build": "yarn clean && tsc"
+    "build": "yarn clean && tsc",
+    "build:watch": "yarn clean && yarn build:watch"
   }
 }
