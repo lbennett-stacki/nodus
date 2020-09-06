@@ -3,5 +3,18 @@
   "version": "0.0.0",
   "main": "index.js",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  },
+  "scripts": {
+    "clean:parser": "cd parser && yarn clean",
+    "clean:compiler": "cd compiler && yarn clean",
+    "build:parser": "cd parser && yarn build",
+    "build:compiler": "cd compiler && yarn build",
+    "build:parser:watch": "yarn build:parser --watch",
+    "build:compiler:watch": "yarn build:compiler --watch",
+    "build": "yarn build:parser && yarn build:compiler",
+    "build:watch": "yarn build:parser:watch && yarn build:compiler:watch"
+  }
 }
