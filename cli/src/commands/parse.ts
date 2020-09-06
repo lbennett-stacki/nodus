@@ -38,16 +38,16 @@ export default class Parse extends Command {
       {
         title: "Finding Nodus config",
         task: (context: any) => {
-          return this.progressLoggerFactory(logger => {
-            context.path = this.configFinder.resolve(args.path, { logger });
+          return this.progressLoggerFactory(() => {
+            context.path = this.configFinder.resolve(args.path);
           });
         }
       },
       {
         title: "Parsing Nodus config",
         task: (context: any) => {
-          return this.progressLoggerFactory(async logger => {
-            context.parsed = await this.parser.parse(context.path, { logger });
+          return this.progressLoggerFactory(async () => {
+            context.parsed = await this.parser.parse(context.path);
           });
         }
       }

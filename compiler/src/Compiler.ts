@@ -1,3 +1,4 @@
+import { SyntaxTree } from '@nodus/parser';
 // Compiling
 //
 // 1. semantic analysis - work out actions/implications
@@ -5,8 +6,8 @@
 // 3. code generation
 
 export class Compiler {
-  async compile(path: string): Promise<void> {
-    console.log("compile", path);
+  async compile(tree: SyntaxTree): Promise<void> {
+    console.log("compile", tree);
     return;
   }
 }
