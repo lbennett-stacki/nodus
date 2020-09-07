@@ -1,6 +1,4 @@
-import { YAMLParser } from "./YAMLParser";
-import { SyntacticAnalyzer } from "./SyntacticAnalyzer";
-import { SyntaxTree } from "./SyntaxTree";
+import { YAMLParser, Node, SyntacticAnalyzer } from ".";
 
 export class Parser {
   constructor(
@@ -8,7 +6,7 @@ export class Parser {
     private readonly syntactic = new SyntacticAnalyzer()
   ) {}
 
-  async parse(path: string): Promise<SyntaxTree> {
+  async parse(path: string): Promise<Node> {
     const yaml = await this.yaml.parse(path);
     return this.syntactic.analyze(yaml);
   }

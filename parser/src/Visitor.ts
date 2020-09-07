@@ -1,11 +1,10 @@
-import { Node } from "./Node";
+import { Node, SyntaxTree } from ".";
 
 export interface Visitable {
   accept(visitor: Visitor): void;
 }
 
-export class Visitor {
-  visit(node: Node) {
-    return node;
-  }
+export abstract class Visitor {
+  abstract visit(node: Node | SyntaxTree): Node;
 }
+

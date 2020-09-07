@@ -2,7 +2,8 @@ import { promisify } from "util";
 import { readFile } from "fs";
 import { safeLoad } from "js-yaml";
 
-export type YAMLValue = string | number | undefined | YAMLTree | YAMLValue[];
+export type YAMLPrimitive = string | number;
+export type YAMLValue = undefined | YAMLPrimitive | YAMLTree | YAMLValue[];
 
 export interface YAMLTree {
   [key: string]: YAMLValue;

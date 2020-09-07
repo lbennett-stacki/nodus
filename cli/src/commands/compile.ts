@@ -33,7 +33,16 @@ export default class Compile extends Command {
   async run() {
     const { args } = this.parse(Compile);
 
-    const tasks = new Listr([
+    this.tasks(args)
+      .run()
+      .then(context => {
+        const { parsed } = context;
+        this.log("\n🖨  Compiled:\n\n", parsed);
+      });
+  }
+
+  tasks(args: { [key: string]: string }): Listr {
+    return new Listr([
       {
         title: "Finding Nodus config",
         task: (context: any) => {
@@ -55,15 +64,9 @@ export default class Compile extends Command {
         task: (context: any) => {
           return this.progressLoggerFactory(async () => {
             context.compiled = await this.compiler.compile(context.parsed);
-
           });
         }
       }
     ]);
-
-    tasks.run().then(context => {
-      const { parsed } = context;
-        this.log("\n🖨  Compiled:\n\n", parsed);
-    });
   }
 }

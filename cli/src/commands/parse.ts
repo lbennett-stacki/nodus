@@ -34,7 +34,21 @@ export default class Parse extends Command {
   async run() {
     const { args, flags } = this.parse(Parse);
 
-    const tasks = new Listr([
+    this.tasks(args)
+      .run()
+      .then(context => {
+        const { parsed } = context;
+        if (!flags.json) {
+          this.log("\n🌲 Tree:\n\n", parsed);
+          this.log("\n🍂 Immediate children:\n\n", parsed.children[1]);
+        } else {
+          this.log("\n 🌲 Tree:\n\n", JSON.stringify(parsed, null, 2));
+        }
+      });
+  }
+
+  tasks(args: { [key: string]: string }): Listr {
+    return new Listr([
       {
         title: "Finding Nodus config",
         task: (context: any) => {
@@ -52,15 +66,5 @@ export default class Parse extends Command {
         }
       }
     ]);
-
-    tasks.run().then(context => {
-      const { parsed } = context;
-      if (!flags.json) {
-        this.log("\n🌲 Root:\n\n", parsed);
-        this.log("\n🍂 Immediate children:\n\n", parsed.children);
-      } else {
-        this.log("\n 🌲 Tree:\n\n", JSON.stringify(parsed, null, 2));
-      }
-    });
   }
 }
