@@ -2,11 +2,12 @@
 
 ## Contents
 
-| COMPONENT       | DESCRIPTION                             | DOCS                           |
-| --------------- | --------------------------------------- | ------------------------------ |
-| @atomus/parser   | Parse config files to AtomusAST          | [README](./parser/README.md)   |
-| @atomus/compiler | Compile AtomusAST to target code         | [README](./compiler/README.md) |
+| COMPONENT        | DESCRIPTION                             | DOCS                           |
+| ---------------  | --------------------------------------- | ------------------------------ |
+| @atomus/parser   | Parse config files to AtomusAST         | [README](./parser/README.md)   |
+| @atomus/compiler | Compile AtomusAST to target code        | [README](./compiler/README.md) |
 | @atomus/cli      | Interface parsing/compiling from shells | [README](./cli/README.md)      |
+| @atomus/web-ui   | Web interface built with ThreeJS        | [README](./web-ui/README.md)      |
 
 ## Config files
 
