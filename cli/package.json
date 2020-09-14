@@ -1,12 +1,12 @@
 {
-  "name": "@nodus/cli",
+  "name": "@atomus/cli",
   "version": "0.0.0",
   "bin": {
-    "nodus-cli": "./bin/run"
+    "atomus-cli": "./bin/run"
   },
   "dependencies": {
-    "@nodus/compiler": "file:../compiler",
-    "@nodus/parser": "file:../parser",
+    "@atomus/compiler": "file:../compiler",
+    "@atomus/parser": "file:../parser",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
@@ -42,7 +42,7 @@
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "nodus-cli",
+    "bin": "atomus-cli",
     "plugins": [
       "@oclif/plugin-help"
     ]

@@ -1,5 +1,5 @@
 export enum EXTENSIONS {
-  NODUS = ".nodus",
+  ATOMUS = ".atomus",
   YAML = ".yaml",
 }
 

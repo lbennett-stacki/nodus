@@ -1,4 +1,4 @@
-# @nodus/compiler
+# @atomus/compiler
 
 ## Overview
 

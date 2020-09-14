@@ -2,16 +2,16 @@ import { Command, flags } from "@oclif/command";
 import * as Listr from "listr";
 import { Observable } from "rxjs";
 import { IConfig } from "@oclif/command/lib";
-import { Parser } from "@nodus/parser";
+import { Parser } from "@atomus/parser";
 import { ConfigFinder } from "../";
 import { ProgressLogger } from "../";
 
 export default class Parse extends Command {
-  static description = "Parse a Nodus config file";
+  static description = "Parse a Atomus config file";
 
   static examples = [
-    "$ nodus-cli parse",
-    "$ nodus-cli parse ./domain/domain.nodus"
+    "$ atomus-cli parse",
+    "$ atomus-cli parse ./domain/domain.atomus"
   ];
 
   static flags = {
@@ -50,7 +50,7 @@ export default class Parse extends Command {
   tasks(args: { [key: string]: string }): Listr {
     return new Listr([
       {
-        title: "Finding Nodus config",
+        title: "Finding Atomus config",
         task: (context: any) => {
           return this.progressLoggerFactory(() => {
             context.path = this.configFinder.resolve(args.path);
@@ -58,7 +58,7 @@ export default class Parse extends Command {
         }
       },
       {
-        title: "Parsing Nodus config",
+        title: "Parsing Atomus config",
         task: (context: any) => {
           return this.progressLoggerFactory(async () => {
             context.parsed = await this.parser.parse(context.path);

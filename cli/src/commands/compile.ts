@@ -1,16 +1,16 @@
 import { Command, flags } from "@oclif/command";
 import { IConfig } from "@oclif/command/lib";
 import * as Listr from "listr";
-import { Compiler } from "@nodus/compiler";
-import { Parser } from "@nodus/parser";
+import { Compiler } from "@atomus/compiler";
+import { Parser } from "@atomus/parser";
 import { ConfigFinder, ProgressLogger } from "../";
 
 export default class Compile extends Command {
-  static description = "Compile a Nodus config file";
+  static description = "Compile a Atomus config file";
 
   static examples = [
-    "$ nodus-cli compile",
-    "$ nodus-cli compile ./domain/domain.nodus"
+    "$ atomus-cli compile",
+    "$ atomus-cli compile ./domain/domain.atomus"
   ];
 
   static flags = {
@@ -44,7 +44,7 @@ export default class Compile extends Command {
   tasks(args: { [key: string]: string }): Listr {
     return new Listr([
       {
-        title: "Finding Nodus config",
+        title: "Finding Atomus config",
         task: (context: any) => {
           return this.progressLoggerFactory(() => {
             context.path = this.configFinder.resolve(args.path);
@@ -52,7 +52,7 @@ export default class Compile extends Command {
         }
       },
       {
-        title: "Parsing Nodus config",
+        title: "Parsing Atomus config",
         task: (context: any) => {
           return this.progressLoggerFactory(async () => {
             context.parsed = await this.parser.parse(context.path);
@@ -60,7 +60,7 @@ export default class Compile extends Command {
         }
       },
       {
-        title: "Compiling Nodus config",
+        title: "Compiling Atomus config",
         task: (context: any) => {
           return this.progressLoggerFactory(async () => {
             context.compiled = await this.compiler.compile(context.parsed);

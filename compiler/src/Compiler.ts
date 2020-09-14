@@ -1,4 +1,4 @@
-import { SyntaxTree } from "@nodus/parser";
+import { SyntaxTree } from "@atomus/parser";
 
 export class Compiler {
   async compile(tree: SyntaxTree): Promise<void> {

@@ -1,16 +1,16 @@
-# @nodus/nodus
+# @atomus/atomus
 
 ## Contents
 
 | COMPONENT       | DESCRIPTION                             | DOCS                           |
 | --------------- | --------------------------------------- | ------------------------------ |
-| @nodus/parser   | Parse config files to NodusAST          | [README](./parser/README.md)   |
-| @nodus/compiler | Compile NodusAST to target code         | [README](./compiler/README.md) |
-| @nodus/cli      | Interface parsing/compiling from shells | [README](./cli/README.md)      |
+| @atomus/parser   | Parse config files to AtomusAST          | [README](./parser/README.md)   |
+| @atomus/compiler | Compile AtomusAST to target code         | [README](./compiler/README.md) |
+| @atomus/cli      | Interface parsing/compiling from shells | [README](./cli/README.md)      |
 
 ## Config files
 
-### Nodus Syntax
+### Atomus Syntax
 
 | FEATURE   | TOKEN | DESCRIPTION                          | EXAMPLE                  |
 | --------- | ----- | ------------------------------------ | ------------------------ |
@@ -23,7 +23,7 @@
 
 ### Vim
 
-Add support for `.nodus` files with `set filetype=nodus.yaml`
+Add support for `.atomus` files with `set filetype=atomus.yaml`
 
 ## Development
 

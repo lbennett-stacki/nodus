@@ -1,5 +1,5 @@
 {
-  "name": "@nodus/compiler",
+  "name": "@atomus/compiler",
   "version": "0.0.0",
   "main": "dist/index.js",
   "license": "UNLICENSED",

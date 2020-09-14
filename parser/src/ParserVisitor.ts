@@ -27,6 +27,7 @@ export class ParserVisitor extends Visitor {
       case "modules":
         return new ModulesCollection(node.value, node.parent, node.children);
       default:
+        // TODO: visitModuleDeclaration()
         console.log(node.parent, "PARENTO");
         if (node.parent instanceof ModulesCollection) {
           console.log("DO IT");
