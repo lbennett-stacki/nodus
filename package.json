@@ -14,7 +14,10 @@
     "build:compiler": "cd compiler && yarn build",
     "build:parser:watch": "yarn build:parser --watch",
     "build:compiler:watch": "yarn build:compiler --watch",
-    "build": "yarn build:parser && yarn build:compiler",
-    "build:watch": "yarn build:parser:watch && yarn build:compiler:watch"
+    "build:web-ui": "cd web-ui && yarn build",
+    "build": "yarn build:parser && yarn build:compiler && yarn build:web-ui",
+    "build:watch": "yarn build:parser:watch && yarn build:compiler:watch",
+    "start:web-ui": "cd web-ui && yarn start",
+    "start": "yarn start:web-ui"
   }
 }
