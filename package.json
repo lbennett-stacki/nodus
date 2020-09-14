@@ -9,13 +9,17 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@atomus/cli": "git+ssh://git@gitlab.aviatotech.com:atomus/atomus#master"
+    "@atomus/cli": "file:./packages/cli"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "llink": "lerna link",
+    "bootstrap": "lerna bootstrap && yarn link",
+    "link:cli": "cd packages/cli && yarn link @atomus/parser && yarn link @atomus/compiler && npm link && rm -rf package-lock.json",
+    "link:compiler": "cd packages/compiler && yarn link @atomus/parser && yarn link",
+    "link:parser": "cd packages/parser && yarn link",
+    "link": "lerna link && cd packages/cli && yarn run link:parser && yarn run link:compiler && yarn run link:cli",
     "clean": "lerna run clean --parallel",
     "build": "lerna run build --parallel",
+    "build:lang": "lerna run build --scope @atomus/compiler --scope @atomus/parser",
     "build:watch": "lerna run build:watch --parallel",
     "start": "lerna run start"
   }

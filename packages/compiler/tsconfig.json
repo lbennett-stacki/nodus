@@ -1,3 +1,28 @@
 {
-  "extends": "../parser/tsconfig.json"
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@atomus/parser": ["packages/parser/src"],
+      "@atomus/compiler": ["packages/compiler/src"],
+      "@atomus/cli": ["packages/cli/src"],
+      "@atomus/web-ui": ["packages/web-ui/src"],
+      "*": ["node_modules/*", "src/types/*"]
+    },
+    "alwaysStrict": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*"]
 }

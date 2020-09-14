@@ -2,9 +2,15 @@
 # yarn lockfile v1
 
 
-"@atomus/compiler@git+ssh://git@gitlab.aviatotech.com:atomus/atomus#master", "@atomus/parser@git+ssh://git@gitlab.aviatotech.com:atomus/atomus#master":
+"@atomus/compiler@file:../compiler":
   version "0.0.0"
-  resolved "git+ssh://git@gitlab.aviatotech.com:atomus/atomus#10a49a1742e973393e9c21b12faade224c1be5f8"
+  dependencies:
+    "@atomus/parser" "file:../../../../../Library/Caches/Yarn/v6/npm-@atomus-compiler-0.0.0-08a87bd7-62db-4346-9202-142e2a52ab46-1600110554844/node_modules/@atomus/parser"
+
+"@atomus/parser@file:../parser":
+  version "0.0.0"
+  dependencies:
+    js-yaml "^3.14.0"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
   version "7.10.4"
@@ -1683,7 +1689,7 @@ js-tokens@^4.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@^3.13.0, js-yaml@^3.13.1:
+js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@^3.14.0:
   version "3.14.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.0.tgz#a7a34170f26a21bb162424d8adacb4113a69e482"
   integrity sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A==

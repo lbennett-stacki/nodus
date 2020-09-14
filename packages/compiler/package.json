@@ -1,12 +1,12 @@
 {
   "name": "@atomus/compiler",
   "version": "0.0.0",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@atomus/parser": "git+ssh://git@gitlab.aviatotech.com:atomus/atomus#master"
+    "@atomus/parser": "file:../parser"
   },
   "devDependencies": {
     "@types/node": "^14.6.4",

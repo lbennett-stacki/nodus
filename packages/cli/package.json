@@ -5,8 +5,8 @@
     "atomus-cli": "./bin/run"
   },
   "dependencies": {
-    "@atomus/parser": "git+ssh://git@gitlab.aviatotech.com:atomus/atomus#master",
-    "@atomus/compiler": "git+ssh://git@gitlab.aviatotech.com:atomus/atomus#master",
+    "@atomus/parser": "file:../parser",
+    "@atomus/compiler": "file:../compiler",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
