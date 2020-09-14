@@ -4,6 +4,9 @@
   "main": "dist/index.js",
   "license": "UNLICENSED",
   "private": true,
+  "dependencies": {
+    "@atomus/parser": "file:../parser"
+  },
   "devDependencies": {
     "@types/node": "^14.6.4",
     "typescript": "^4.0.2"

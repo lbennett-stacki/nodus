@@ -10,9 +10,10 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "clean": "lerna run clean",
-    "build": "lerna run build",
-    "build:watch": "lerna run build:watch",
-    "start": "lerna run start"
+    "llink": "lerna link",
+    "clean": "lerna run clean --parallel",
+    "build": "lerna run build --parallel",
+    "build:watch": "lerna run build:watch --parallel",
+    "start": "lerna run start --parallel"
   }
 }
