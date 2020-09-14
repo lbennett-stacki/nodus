@@ -5,19 +5,14 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
+    "lerna": "^3.22.1",
     "typescript": "^4.0.2"
   },
   "scripts": {
-    "clean:parser": "cd parser && yarn clean",
-    "clean:compiler": "cd compiler && yarn clean",
-    "build:parser": "cd parser && yarn build",
-    "build:compiler": "cd compiler && yarn build",
-    "build:parser:watch": "yarn build:parser --watch",
-    "build:compiler:watch": "yarn build:compiler --watch",
-    "build:web-ui": "cd web-ui && yarn build",
-    "build": "yarn build:parser && yarn build:compiler && yarn build:web-ui",
-    "build:watch": "yarn build:parser:watch && yarn build:compiler:watch",
-    "start:web-ui": "cd web-ui && yarn start",
-    "start": "yarn start:web-ui"
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna run clean",
+    "build": "lerna run build",
+    "build:watch": "lerna run build:watch",
+    "start": "lerna run start"
   }
 }
