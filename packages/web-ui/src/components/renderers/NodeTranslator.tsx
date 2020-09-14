@@ -52,5 +52,5 @@ export const NodeTranslator: React.FC = observer(() => {
 
   }, [ref.current]);
 
-  return <dragControls ref={ref} args={[scene.children, camera, domElement]}/>
+  return <dragControls ref={ref} args={[instance, camera, domElement]}/>
 })
