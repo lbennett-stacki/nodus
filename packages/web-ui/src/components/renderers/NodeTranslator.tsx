@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { extend, useThree, ReactThreeFiber } from "react-three-fiber";
-import { Object3D } from "three";
 import { DragControl } from "../controls/DragControl";
 import NodeSelectionStore from "../../stores/nodes/NodeSelection.store";
 import { observer } from "mobx-react-lite";

@@ -1,13 +1,9 @@
 import {
   EventDispatcher,
-  Matrix4,
-  Plane,
   Camera,
   Raycaster,
   Vector2,
   Object3D,
-  Intersection,
-  Vector3
 } from "three";
 
 export class DragControl extends EventDispatcher {

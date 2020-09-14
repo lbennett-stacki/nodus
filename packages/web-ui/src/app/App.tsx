@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { AppStyles } from '../styles/AppStyles.styles.tw'
 import { IsometricEditor } from '../features/editor/IsometricEditor';
-import { LoadingManager } from 'three';
-
 
 const Loader: React.FC<{ fadeOut: boolean }> = ({ fadeOut }) => {
-  // const fadeClass = fadeOut ? "transition duration-300 ease-in-out transition-opacity-0 fadeOutDown" : ''
   const fadeClass = ''
   return (
     <div className={`absolute w-full h-full bg-gray-900 flex justify-center items-center z-10 ${fadeClass}`}>
@@ -30,8 +26,6 @@ function App() {
       { !loaded && <Loader fadeOut={loaded}/> }
       <IsometricEditor />
 
-      {/* <BoxesExample/> */}
-      {/* <Editor/> */}
     </AppStyles>
   );
 }

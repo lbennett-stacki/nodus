@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { ControlsProvider, Controls, useControl, ControlOptions } from 'react-three-gui';
+import { useControl, ControlOptions } from 'react-three-gui';
 
 export const useVector3Controls = (
   name: string,
@@ -13,7 +13,6 @@ export const useVector3Controls = (
     scrub: true,
     min: -Infinity,
     max: Infinity,
-    // spring: true,
   };
 
   const values = defaultValues ?? new THREE.Vector3(0,0,0)

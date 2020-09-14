@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import React, { useRef, useMemo, useState, useEffect, useContext } from 'react'
+import React, { useRef, useMemo, useEffect, useContext } from 'react'
 import { useThree, useFrame, extend, ReactThreeFiber } from 'react-three-fiber'
 import NodeSelectionStore from '../../stores/nodes/NodeSelection.store'
 

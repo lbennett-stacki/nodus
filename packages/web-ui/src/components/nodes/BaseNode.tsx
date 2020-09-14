@@ -1,11 +1,10 @@
 import * as THREE from "three";
-import React, { useRef, useState, useContext, useEffect } from "react";
+import React, { useRef, useState, useContext } from "react";
 import { useControl } from "react-three-gui";
 import { Html } from "drei";
 import { useBaseNodeControls } from "../controls/debug.controls";
 import { ScaleUp } from "../side-menu/Animations.scaleup";
 import { NodeTag } from "../tags/NodeTag";
-import { useFrame, ReactThreeFiber, useThree } from "react-three-fiber";
 import NodeSelectionStore, {
   ISelectableNode,
   ISelectableNodeMeta
@@ -13,12 +12,6 @@ import NodeSelectionStore, {
 
 import { NodeIndicator } from "./Indicator.styles.tw";
 import { useFloatable } from "./floatable.hooks";
-
-import { Plane } from "drei";
-
-const Gray = "#2e2f33";
-const Black = "#000000";
-const White = "#e3e3e3";
 
 export interface BaseNodeProps {
   label: string;
@@ -41,7 +34,6 @@ export const BaseNode: React.FC<BaseNodeProps> = ({
   const {
     selectedNode,
     selectNode,
-    deSelectNode,
     onHoverOn,
     onHoverOut
   } = nodeSelectionStore;
@@ -49,7 +41,7 @@ export const BaseNode: React.FC<BaseNodeProps> = ({
   const [hovered, setHovered] = useState<boolean>(false);
   const [showLabel, setShowLabel] = useState<boolean>(true);
 
-  const [meta, setMeta] = useState<ISelectableNodeMeta>(
+  const [meta] = useState<ISelectableNodeMeta>(
     props.meta ?? {
       group: "common",
       groupColor: "bg-orange-500",
@@ -83,8 +75,6 @@ export const BaseNode: React.FC<BaseNodeProps> = ({
     if (selectedNode || hovered) return colors.selected;
     return colors.normal;
   };
-
-  const { raycaster } = useThree();
 
   const baseTransitions = "transition duration-500 ease-in-out";
   let labelClass = hovered ? "transition-opacity-0" : "transition-opacity-0";

@@ -1,6 +1,6 @@
 import * as THREE from "three";
-import React, { useContext, useRef, Suspense } from "react";
-import { Canvas as THREECanvas, useFrame } from "react-three-fiber";
+import React, { useContext, Suspense } from "react";
+import { Canvas as THREECanvas } from "react-three-fiber";
 import { ControlsProvider, Controls } from "react-three-gui";
 import { MapControls } from "drei";
 
@@ -9,16 +9,12 @@ import { Outliner } from "../effects/Outline.effects";
 import { NodeTranslator } from "./NodeTranslator";
 import { observer } from "mobx-react-lite";
 import NodeSelectionStore from "../../stores/nodes/NodeSelection.store";
-import { RCNodeTranslator } from "./RCNodeTranslator";
-
-import Effects from "../effects/test.effects";
 
 export interface IsometricRendererProps {
   gridHelper?: boolean;
 }
 
 const Lights: React.FC = () => {
-  const store = useContext(NodeSelectionStore);
   return (
     <>
       <ambientLight intensity={3.5} />
@@ -58,15 +54,6 @@ export const IsometricRenderer: React.FC<IsometricRendererProps> = ({
   children,
   ...props
 }) => {
-  const zoomRange = { minZoom: 30, maxZoom: 40 };
-
-  const floor = useRef<any>();
-
-  const width = 960;
-  const height = 500;
-  const aspect = width / height;
-  const D = 1;
-
   return (
     <ControlsProvider>
       <THREECanvas
@@ -94,22 +81,12 @@ export const IsometricRenderer: React.FC<IsometricRendererProps> = ({
 
         <Lights />
 
-        {/* <ambientLight intensity={2.5} /> */}
-        {/* <pointLight position={[10, 10, 10]} /> */}
-
         {children}
 
         <Floor />
 
-        {/* <RCNodeTranslator detectionPlane={floor.current} /> */}
-        {/* 
-        {
-          floor.current && 
-        } */}
-
         <Suspense fallback={null}>
           <Outliner />
-          {/* <Effects /> */}
         </Suspense>
       </THREECanvas>
       <Controls />

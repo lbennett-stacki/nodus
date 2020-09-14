@@ -1,18 +1,17 @@
-import * as THREE from 'three'
-import React, { useEffect, useContext } from 'react'
-import { BaseNode } from '../../components/nodes/BaseNode';
-import { IsometricRenderer } from '../../components/renderers/IsometricRenderer';
-import { SideMenu } from '../../components/side-menu/SideMenu';
-import NodeSelectionStore from '../../stores/nodes/NodeSelection.store';
-import { observer } from 'mobx-react-lite';
+import * as THREE from "three";
+import React, { useEffect, useContext } from "react";
+import { BaseNode } from "../../components/nodes/BaseNode";
+import { IsometricRenderer } from "../../components/renderers/IsometricRenderer";
+import { SideMenu } from "../../components/side-menu/SideMenu";
+import NodeSelectionStore from "../../stores/nodes/NodeSelection.store";
+import { observer } from "mobx-react-lite";
 
 export const IsometricEditor: React.FC = observer(() => {
-
-  const store = useContext(NodeSelectionStore)
+  const store = useContext(NodeSelectionStore);
 
   const nodes = [
     {
-      label: 'Test',
+      label: "Test",
       position: new THREE.Vector3(0, 0, 0),
       floatable: true,
       meta: {
@@ -23,7 +22,7 @@ export const IsometricEditor: React.FC = observer(() => {
       }
     },
     {
-      label: 'Product',
+      label: "Product",
       position: new THREE.Vector3(2, 2, -5),
       floatable: true,
       meta: {
@@ -34,7 +33,7 @@ export const IsometricEditor: React.FC = observer(() => {
       }
     },
     {
-      label: 'Router',
+      label: "Router",
       position: new THREE.Vector3(3, 3, 5),
       floatable: true,
       meta: {
@@ -44,23 +43,23 @@ export const IsometricEditor: React.FC = observer(() => {
         name: "Untitled"
       }
     }
-  ]
+  ];
 
   useEffect(() => {
-    nodes.forEach(node => store.createMetaNode(node))
-  }, [])
+    nodes.forEach(node => store.createMetaNode(node));
+  }, []);
 
   return (
     <>
       <SideMenu />
       <IsometricRenderer gridHelper>
-        {
-          store.virtualMetaNodes.map(node => <BaseNode {...node} />)
-        }
+        {store.virtualMetaNodes.map(node => (
+          <BaseNode {...node} />
+        ))}
         {/* <BaseNode label="Test" position={new THREE.Vector3(0, 0, 0)} floatable />
         <BaseNode label="Product" position={new THREE.Vector3(2, 2, 2)} floatable />
         <BaseNode label="Luke" position={new THREE.Vector3(4, 1, 0)} floatable /> */}
       </IsometricRenderer>
     </>
-  )
-})
+  );
+});

@@ -1,5 +1,4 @@
-
-import styled, { StyledFunction } from "styled-components"
+import styled from "styled-components"
 
 const IsometricTransform = {
   rotate3D: 'rotateX(60deg) rotateY(0deg) rotateZ(-45deg)',
