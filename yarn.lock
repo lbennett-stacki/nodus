@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@atomus/cli@git+ssh://git@gitlab.aviatotech.com:atomus/atomus#master":
+  version "0.0.0"
+  resolved "git+ssh://git@gitlab.aviatotech.com:atomus/atomus#272f1d28d71924f3baa2ea8a90214c96b1e5ff96"
+
 "@babel/code-frame@^7.0.0":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
