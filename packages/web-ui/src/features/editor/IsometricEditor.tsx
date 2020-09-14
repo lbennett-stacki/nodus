@@ -53,7 +53,7 @@ export const IsometricEditor: React.FC = observer(() => {
   return (
     <>
       <SideMenu />
-      <IsometricRenderer>
+      <IsometricRenderer gridHelper>
         {
           store.virtualMetaNodes.map(node => <BaseNode {...node} />)
         }

@@ -24,12 +24,6 @@ export interface ISelectableNode {
 
 
 class NodeSelectionStore {
-  constructor() {
-    // reaction(() => this.todos, _ => console.log(this.todos.length))
-    reaction(() => this.selectedNodeId, _ => console.log(`[NodeSelectionStore] Node id: ${this.selectedNodeId}`))
-    reaction(() => this.selectedNode, _ => console.log(`[NodeSelectionStore] Mesh: ${this.selectedNode}`))
-  }
-
   @observable selectedNodeId?: string;
   @observable selectedNode?: ISelectableNode;
   @observable hoveredNodes: ISelectableNode[] = [];
@@ -51,14 +45,6 @@ class NodeSelectionStore {
   @action onHoverOut = (node: ISelectableNode) => {
     this.hoveredNodes = this.hoveredNodes.filter(item => node !== item);
   }
-
-  // @computed get info() {
-  //   return {
-  //     total: this.todos.length,
-  //     completed: this.todos.filter(todo => todo.completed).length,
-  //     notCompleted: this.todos.filter(todo => !todo.completed).length,
-  //   }
-  // }
 
   @action createMetaNode = (props: BaseNodeProps) => {
     this.virtualMetaNodes.push(props)

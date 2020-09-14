@@ -7,7 +7,7 @@ const IsometricTransform = {
 }
 
 export const NodeIndicator = styled.div.attrs((props) => {
-  const base = 'rounded-full h-4 w-4 bg-white animate-pulse transition transition-opacity'
+  const base = 'rounded-full h-4 w-4 bg-white animate-pulse transition transition-opacity pointer-events-none'
   return { className: `${base}` }
 })`
   transform: ${IsometricTransform.rotate3D} ${IsometricTransform.offset};
