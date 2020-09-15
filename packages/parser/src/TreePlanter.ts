@@ -1,20 +1,17 @@
-import { Node, NodeKeys, SyntaxTree, YAMLTree, YAMLValue } from ".";
+import { Node, NodeKeys, SyntaxTree, YAMLTree, YAMLValue } from '.';
 
 export class TreePlanter {
   constructor(
     private tree?: SyntaxTree,
-    private treeFactory = SyntaxTree.create
+    private treeFactory = SyntaxTree.create,
   ) {}
 
-  recursiveDescent(
-    [key, value]: [string, YAMLValue],
-    parent?: Node
-  ) {
+  recursiveDescent([key, value]: [string, YAMLValue], parent?: Node) {
     let node = new Node(
       (key as unknown) as NodeKeys,
       // TODO: use YAMLPrimitive enum of some kind?
-      ["string", "number"].includes(typeof value) ? value : undefined,
-      parent
+      ['string', 'number'].includes(typeof value) ? value : undefined,
+      parent,
     );
     if (!parent) {
       this.tree = this.treeFactory(node);
@@ -24,22 +21,22 @@ export class TreePlanter {
       parent.addChild(node);
     }
 
-    if (value && typeof value === "object") {
+    if (value && typeof value === 'object') {
       this.descendObject(value, node);
     } else if (Array.isArray(value)) {
       this.descendArray(value, node);
     }
   }
 
-  descendObject(object: object, node?: Node) {
-    return Object.entries(object).forEach(entry =>
-      this.recursiveDescent(entry, node)
+  descendObject(object: { [key: string]: YAMLValue }, node?: Node) {
+    return Object.entries(object).forEach((entry) =>
+      this.recursiveDescent(entry, node),
     );
   }
 
   descendArray(array: YAMLValue[], node?: Node) {
     return array.forEach((v) =>
-      this.recursiveDescent([NodeKeys.Node.toString(), v], node)
+      this.recursiveDescent([NodeKeys.Node.toString(), v], node),
     );
   }
 

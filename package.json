@@ -21,6 +21,7 @@
     "build": "lerna run build --parallel",
     "build:lang": "lerna run build --scope @atomus/compiler --scope @atomus/parser",
     "build:watch": "lerna run build:watch --parallel",
+    "lint": "lerna run lint --parallel",
     "start": "lerna run start"
   }
 }

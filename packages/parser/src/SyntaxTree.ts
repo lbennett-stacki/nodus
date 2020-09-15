@@ -1,4 +1,4 @@
-import { Visitor, Visitable, Node } from ".";
+import { Visitor, Visitable, Node } from '.';
 
 export class SyntaxTree implements Visitable {
   constructor(readonly root: Node) {}

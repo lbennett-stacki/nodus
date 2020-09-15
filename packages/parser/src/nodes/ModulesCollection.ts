@@ -1,4 +1,4 @@
-import { YAMLValue } from "..";
+import { YAMLValue } from '..';
 import { Node, NodeKeys } from '.';
 
 export class ModulesCollection extends Node {

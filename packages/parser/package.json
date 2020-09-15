@@ -11,11 +11,18 @@
   "devDependencies": {
     "@types/js-yaml": "^3.12.5",
     "@types/node": "^14.6.4",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.1",
     "typescript": "^4.0.2"
   },
   "scripts": {
     "clean": "rm -rf dist/*",
     "build": "yarn clean && tsc",
-    "build:watch": "yarn clean && tsc --watch"
+    "build:watch": "yarn clean && tsc --watch",
+    "lint": "eslint '*/**/*.{js,ts}' --quiet --fix"
   }
 }

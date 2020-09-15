@@ -1,5 +1,5 @@
-import { Node, ModelProperty } from "..";
-import { Visitor } from '.'
+import { Node, ModelProperty } from '..';
+import { Visitor } from '.';
 
 export class ModelPropertyVisitor extends Visitor {
   visit(node: Node): Node {

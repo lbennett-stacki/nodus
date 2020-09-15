@@ -1,4 +1,4 @@
-import { Visitor, Visitable, YAMLValue } from "..";
+import { Visitor, Visitable, YAMLValue } from '..';
 import { NodeKeys } from '.';
 
 export class Node implements Visitable {
@@ -6,7 +6,7 @@ export class Node implements Visitable {
     public key?: NodeKeys,
     public value?: YAMLValue,
     public parent?: Node,
-    public children: Node[] = []
+    public children: Node[] = [],
   ) {}
 
   accept(visitor: Visitor): Node {

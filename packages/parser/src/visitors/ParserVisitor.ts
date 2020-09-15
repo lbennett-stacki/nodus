@@ -4,9 +4,9 @@ import {
   DescriptionDeclaration,
   NameDeclaration,
   ModulesCollection,
-  ModelsCollection
-} from "..";
-import { Visitor, ModuleDeclarationVisitor, ModelDeclarationVisitor } from ".";
+  ModelsCollection,
+} from '..';
+import { Visitor, ModuleDeclarationVisitor, ModelDeclarationVisitor } from '.';
 
 export class ParserVisitor extends Visitor {
   private readonly moduleDeclarationVisitor = new ModuleDeclarationVisitor();
@@ -18,24 +18,24 @@ export class ParserVisitor extends Visitor {
       case NodeKeys.Root:
         return new Node(node.key, node.value, node.parent, node.children);
       case NodeKeys.DescriptionDeclaration:
-        if (node.value && typeof node.value === "string") {
+        if (node.value && typeof node.value === 'string') {
           return new DescriptionDeclaration(node.value, node.parent);
         }
         break;
       case NodeKeys.NameDeclaration:
-        if (node.value && typeof node.value === "string") {
+        if (node.value && typeof node.value === 'string') {
           return new NameDeclaration(node.value, node.parent);
         }
         break;
       case NodeKeys.ModulesCollection:
         return this.visitEachChild(
           new ModulesCollection(node.value, node.parent, node.children),
-          this.moduleDeclarationVisitor
+          this.moduleDeclarationVisitor,
         );
       case NodeKeys.ModelsCollection:
         return this.visitEachChild(
           new ModelsCollection(node.value, node.parent, node.children),
-          this.modelDeclarationVisitor
+          this.modelDeclarationVisitor,
         );
       default:
         return node;

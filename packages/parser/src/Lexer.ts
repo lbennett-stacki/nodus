@@ -1,3 +1,7 @@
+import { Node } from '.';
+
 export class Lexer {
-  tokenize() {}
+  tokenize(node: Node): Node {
+    return node;
+  }
 }

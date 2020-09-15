@@ -1,9 +1,9 @@
-import { YAMLParser, Node, SyntacticAnalyzer } from ".";
+import { YAMLParser, Node, SyntacticAnalyzer } from '.';
 
 export class Parser {
   constructor(
     private readonly yaml = new YAMLParser(),
-    private readonly syntactic = new SyntacticAnalyzer()
+    private readonly syntactic = new SyntacticAnalyzer(),
   ) {}
 
   async parse(path: string): Promise<Node> {

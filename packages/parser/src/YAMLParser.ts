@@ -1,6 +1,6 @@
-import { promisify } from "util";
-import { readFile } from "fs";
-import { safeLoad } from "js-yaml";
+import { promisify } from 'util';
+import { readFile } from 'fs';
+import { safeLoad } from 'js-yaml';
 
 export type YAMLPrimitive = string | number;
 export type YAMLValue = undefined | YAMLPrimitive | YAMLTree | YAMLValue[];
@@ -11,11 +11,11 @@ export interface YAMLTree {
 
 export class YAMLParser {
   read(path: string): Promise<string> {
-    return promisify(readFile)(path, "utf-8");
+    return promisify(readFile)(path, 'utf-8');
   }
 
   parse(path: string): Promise<YAMLTree> {
-    return this.read(path).then(content => safeLoad(content) as YAMLTree);
+    return this.read(path).then((content) => safeLoad(content) as YAMLTree);
   }
 
   static parse(path: string): Promise<YAMLTree> {
