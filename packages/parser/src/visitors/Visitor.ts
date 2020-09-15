@@ -1,4 +1,4 @@
-import { Node, SyntaxTree } from ".";
+import { Node, SyntaxTree } from "..";
 
 export interface Visitable {
   accept(visitor: Visitor): void;

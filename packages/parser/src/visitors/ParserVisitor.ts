@@ -1,48 +1,19 @@
 import {
   Node,
   NodeKeys,
-  Visitor,
   DescriptionDeclaration,
   NameDeclaration,
   ModulesCollection,
-  ModuleDeclaration,
-  ModelsCollection,
-  ModelDeclaration,
-  ModelProperty,
-} from ".";
-
-export class ModuleDeclarationVisitor extends Visitor {
-  visit(node: Node): Node {
-    return new ModuleDeclaration(
-      node.key.toString(),
-      node.parent,
-      node.children
-    );
-  }
-}
-
-export class ModelPropertyVisitor extends Visitor {
-  visit(node: Node): Node {
-    return new ModelProperty(
-      node.key.toString(),
-      node.parent,
-      node.children
-    );
-  }
-}
-
-export class ModelDeclarationVisitor extends Visitor {
-  visit(node: Node): Node {
-    return this.visitEachChild(
-      new ModelDeclaration(node.key.toString(), node.parent, node.children),
-      new ModelPropertyVisitor()
-    );
-  }
-}
+  ModelsCollection
+} from "..";
+import { Visitor, ModuleDeclarationVisitor, ModelDeclarationVisitor } from ".";
 
 export class ParserVisitor extends Visitor {
+  private readonly moduleDeclarationVisitor = new ModuleDeclarationVisitor();
+  private readonly modelDeclarationVisitor = new ModelDeclarationVisitor();
+
   visit(node: Node): Node {
-    // TODO: replace with a map
+    // TODO: replace with a map/factory
     switch (node.key) {
       case NodeKeys.Root:
         return new Node(node.key, node.value, node.parent, node.children);
@@ -59,12 +30,12 @@ export class ParserVisitor extends Visitor {
       case NodeKeys.ModulesCollection:
         return this.visitEachChild(
           new ModulesCollection(node.value, node.parent, node.children),
-          new ModuleDeclarationVisitor()
+          this.moduleDeclarationVisitor
         );
       case NodeKeys.ModelsCollection:
         return this.visitEachChild(
           new ModelsCollection(node.value, node.parent, node.children),
-          new ModelDeclarationVisitor()
+          this.modelDeclarationVisitor
         );
       default:
         return node;
