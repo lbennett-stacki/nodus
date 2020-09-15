@@ -16,6 +16,6 @@
   "scripts": {
     "clean": "rm -rf dist/*",
     "build": "yarn clean && tsc",
-    "build:watch": "yarn clean && yarn build:watch"
+    "build:watch": "yarn clean && tsc --watch"
   }
 }

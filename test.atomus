@@ -10,19 +10,19 @@ Inkage:
       #   guards:
       #     JWTGuard: NULL
 
-    # Users:
-    #   name: UsersService
-    #   description: Does stuff to the users n that
-    #   models:
-    #     User:
-    #       id:
-    #         type: int
-    #         pk: true
-    #         increment: true
-    #       name:
-    #         type: varchar
-    #         nullable: false
-    #       tattoos: :< Tattoo.id
+    Users:
+      name: UsersService
+      description: Does stuff to the users n that
+      models:
+        User:
+          id:
+            type: int
+            pk: true
+            increment: true
+          name:
+            type: varchar
+            nullable: false
+          tattoos: :< Tattoo.id
     #     Tattoo:
     #       name:
     #         type: varchar

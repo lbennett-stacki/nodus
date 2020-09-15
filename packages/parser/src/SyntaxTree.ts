@@ -6,15 +6,11 @@ export class SyntaxTree implements Visitable {
   accept(visitor: Visitor): Node {
     const result = visitor.visit(this);
 
-    console.log("SYNTAX TREE RESULT", result.constructor.name, result.value);
     this.root.value = result.value;
     this.root.parent = result.parent;
-    console.log("SYNTAX TREE visiting children");
     this.root.children = result.children.reduce((children, child) => {
-      console.log("SYNTAX TREE visiting child");
       const res = child.accept(visitor);
       // res.parent = this.parent;
-      console.log("SYNTAX TREE CHILD RES", res);
       if (res !== undefined) {
         children.push(res);
       }

@@ -1,10 +1,14 @@
 export { Lexer } from "./Lexer";
 export {
   Node,
-  DeserializedNode,
+  NodeKeys,
   DescriptionDeclaration,
+  NameDeclaration,
   ModulesCollection,
-  ModuleDeclaration
+  ModuleDeclaration,
+  ModelsCollection,
+  ModelDeclaration,
+  ModelProperty,
 } from "./Node";
 export { Parser } from "./Parser";
 export { SyntaxTree } from "./SyntaxTree";

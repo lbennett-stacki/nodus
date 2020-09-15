@@ -37,7 +37,7 @@ export default class Compile extends Command {
       .run()
       .then(context => {
         const { parsed } = context;
-        this.log("\n🖨  Compiled:\n\n", parsed);
+        this.log("\n🖨  Compiled:\n\n", parsed.children[1].children[1].children[2].children[0]);
       });
   }
 
