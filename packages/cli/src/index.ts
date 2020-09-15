@@ -1,3 +1,3 @@
-export { run } from "@oclif/command";
-export { ConfigFinder } from './ConfigFinder';
-export { ProgressLogger } from './ProgressLogger';
+export {run} from '@oclif/command'
+export {ConfigFinder} from './config-finder'
+export {ProgressLogger} from './progress-logger'
